@@ -6,26 +6,27 @@
   <title>KURVA — Transformación Digital & Estrategia Empresarial</title>
 
   <!-- SEO -->
-  <meta name="description" content="KURVA es una consultora de transformación digital y estrategia empresarial. Convertimos buenas empresas en excelentes empresas." />
+  <meta name="description" content="KURVA es una consultora de transformación digital y estrategia empresarial para startups, emprendedores y empresas que quieren crecer en serio." />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://kurva.co/" />
 
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://kurva.co/" />
-  <meta property="og:title" content="KURVA — Transformación Digital & Estrategia Empresarial" />
-  <meta property="og:description" content="La nueva manera de crecer tu empresa. Convertimos buenas empresas en excelentes empresas." />
+  <meta property="og:title" content="KURVA — La nueva manera de crecer tu empresa" />
+  <meta property="og:description" content="Consultoría en transformación digital y estrategia empresarial. Estás listo para subir." />
   <meta property="og:image" content="https://kurva.co/og-image.jpg" />
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="KURVA — Transformación Digital & Estrategia Empresarial" />
-  <meta name="twitter:description" content="La nueva manera de crecer tu empresa." />
+  <meta name="twitter:title" content="KURVA — La nueva manera de crecer tu empresa" />
+  <meta name="twitter:description" content="Estás listo para subir." />
   <meta name="twitter:image" content="https://kurva.co/og-image.jpg" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -43,1145 +44,777 @@
     }
 
     html { scroll-behavior: smooth; }
+    body { background: var(--black); color: var(--cream); font-family: var(--font-body); overflow-x: hidden; }
 
-    body {
-      background: var(--black);
-      color: var(--cream);
-      font-family: var(--font-body);
-      overflow-x: hidden;
-    }
-
-    /* ─── NOISE TEXTURE OVERLAY ─── */
+    /* NOISE */
     body::before {
       content: '';
       position: fixed;
       inset: 0;
       background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
       pointer-events: none;
-      z-index: 1000;
+      z-index: 999;
       opacity: 0.5;
     }
 
     /* ─── NAV ─── */
     nav {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 900;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
+      position: fixed; top: 0; left: 0; right: 0; z-index: 900;
+      display: flex; align-items: center; justify-content: space-between;
       padding: 1.5rem 4rem;
-      background: transparent;
-      transition: background 0.4s ease, backdrop-filter 0.4s ease;
+      transition: background 0.4s, backdrop-filter 0.4s;
     }
-
     nav.scrolled {
-      background: rgba(7, 5, 1, 0.85);
-      backdrop-filter: blur(16px);
-      border-bottom: 1px solid rgba(183, 25, 191, 0.15);
+      background: rgba(7,5,1,0.88);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid rgba(183,25,191,0.12);
     }
-
-    .nav-logo {
-      font-family: var(--font-head);
-      font-size: 1.5rem;
-      font-weight: 700;
-      letter-spacing: 0.25em;
-      color: var(--cream);
-      text-decoration: none;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 2.5rem;
-      list-style: none;
-    }
-
-    .nav-links a {
-      font-size: 0.8rem;
-      font-weight: 500;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: rgba(246, 251, 239, 0.65);
-      text-decoration: none;
-      transition: color 0.25s;
-    }
-
+    .nav-logo { font-family: var(--font-head); font-size: 1.5rem; font-weight: 700; letter-spacing: 0.25em; color: var(--cream); text-decoration: none; }
+    .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+    .nav-links a { font-size: 0.78rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(246,251,239,0.6); text-decoration: none; transition: color 0.25s; }
     .nav-links a:hover { color: var(--cream); }
-
-    .nav-cta {
-      font-size: 0.78rem;
-      font-weight: 600;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--black);
-      background: var(--magenta);
-      padding: 0.65rem 1.5rem;
-      border-radius: 100px;
-      text-decoration: none;
-      transition: opacity 0.25s, transform 0.25s;
-    }
-
+    .nav-cta { font-size: 0.78rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--cream); background: linear-gradient(135deg, var(--magenta), var(--indigo)); padding: 0.65rem 1.5rem; border-radius: 100px; text-decoration: none; transition: opacity 0.25s, transform 0.25s; }
     .nav-cta:hover { opacity: 0.85; transform: scale(1.03); }
 
     /* ─── HERO ─── */
-    #hero {
-      position: relative;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      padding: 0 4rem 6rem;
-      overflow: hidden;
-    }
+    #hero { position: relative; min-height: 100vh; display: flex; flex-direction: column; justify-content: flex-end; padding: 0 4rem 6rem; overflow: hidden; }
 
-    .hero-bg {
-      position: absolute;
-      inset: 0;
-      z-index: 0;
-    }
+    #waveCanvas { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 0; }
 
-    /* Gradient orbs */
-    .orb {
-      position: absolute;
-      border-radius: 50%;
-      filter: blur(90px);
-      opacity: 0.55;
-      animation: float 8s ease-in-out infinite;
-    }
-
-    .orb-1 {
-      width: 55vw; height: 55vw;
-      background: radial-gradient(circle, var(--magenta), transparent 70%);
-      top: -15%; right: -10%;
-      animation-delay: 0s;
-    }
-
-    .orb-2 {
-      width: 35vw; height: 35vw;
-      background: radial-gradient(circle, var(--indigo), transparent 70%);
-      bottom: 5%; left: -8%;
-      animation-delay: -3s;
-    }
-
-    .orb-3 {
-      width: 25vw; height: 25vw;
-      background: radial-gradient(circle, var(--teal), transparent 70%);
-      top: 40%; right: 30%;
-      animation-delay: -5s;
-      opacity: 0.3;
-    }
-
-    @keyframes float {
-      0%, 100% { transform: translateY(0) scale(1); }
-      50% { transform: translateY(-30px) scale(1.04); }
-    }
-
-    /* Hero grid lines */
     .hero-grid {
-      position: absolute;
-      inset: 0;
-      background-image:
-        linear-gradient(rgba(246, 251, 239, 0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(246, 251, 239, 0.03) 1px, transparent 1px);
+      position: absolute; inset: 0; z-index: 1;
+      background-image: linear-gradient(rgba(246,251,239,0.025) 1px, transparent 1px), linear-gradient(90deg, rgba(246,251,239,0.025) 1px, transparent 1px);
       background-size: 80px 80px;
     }
-
-    .hero-content {
-      position: relative;
-      z-index: 2;
-      max-width: 900px;
-    }
-
-    .hero-tag {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      font-size: 0.72rem;
-      font-weight: 600;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--magenta);
-      margin-bottom: 1.5rem;
-    }
-
-    .hero-tag::before {
-      content: '';
-      display: block;
-      width: 24px;
-      height: 1px;
-      background: var(--magenta);
-    }
-
-    .hero-title {
-      font-family: var(--font-head);
-      font-size: clamp(3.5rem, 8vw, 7.5rem);
-      font-weight: 700;
-      line-height: 1;
-      letter-spacing: -0.03em;
-      color: var(--cream);
-      margin-bottom: 1.5rem;
-    }
-
-    .hero-title .accent {
-      background: linear-gradient(135deg, var(--magenta) 0%, var(--indigo) 50%, var(--teal) 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-
-    .hero-sub {
-      font-size: clamp(1rem, 1.4vw, 1.2rem);
-      font-weight: 300;
-      line-height: 1.7;
-      color: rgba(246, 251, 239, 0.6);
-      max-width: 480px;
-      margin-bottom: 3rem;
-    }
-
-    .hero-actions {
-      display: flex;
-      align-items: center;
-      gap: 1.5rem;
-      flex-wrap: wrap;
-    }
-
-    .btn-primary {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      font-size: 0.85rem;
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--cream);
-      background: linear-gradient(135deg, var(--magenta), var(--indigo));
-      padding: 1rem 2.5rem;
-      border-radius: 100px;
-      text-decoration: none;
-      transition: transform 0.3s, box-shadow 0.3s;
-      box-shadow: 0 0 40px rgba(183, 25, 191, 0.35);
-    }
-
-    .btn-primary:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 60px rgba(183, 25, 191, 0.55);
-    }
-
-    .btn-secondary {
-      font-size: 0.85rem;
-      font-weight: 500;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: rgba(246, 251, 239, 0.65);
-      text-decoration: none;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      transition: color 0.25s;
-    }
-
+    .hero-content { position: relative; z-index: 2; max-width: 900px; }
+    .hero-tag { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--magenta); margin-bottom: 1.25rem; }
+    .hero-tag::before { content: ''; display: block; width: 24px; height: 1px; background: var(--magenta); }
+    .hero-slogan { font-size: 0.8rem; font-weight: 400; letter-spacing: 0.3em; text-transform: uppercase; color: rgba(246,251,239,0.35); margin-bottom: 1rem; }
+    .hero-title { font-family: var(--font-head); font-size: clamp(3.2rem, 7.5vw, 7rem); font-weight: 700; line-height: 1; letter-spacing: -0.03em; margin-bottom: 1.5rem; }
+    .hero-title .accent { background: linear-gradient(135deg, var(--magenta) 0%, var(--indigo) 50%, var(--teal) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .hero-sub { font-size: clamp(0.95rem, 1.3vw, 1.15rem); font-weight: 300; line-height: 1.75; color: rgba(246,251,239,0.58); max-width: 480px; margin-bottom: 2.5rem; }
+    .hero-actions { display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap; }
+    .btn-primary { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.85rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--cream); background: linear-gradient(135deg, var(--magenta), var(--indigo)); padding: 1rem 2.5rem; border-radius: 100px; text-decoration: none; transition: transform 0.3s, box-shadow 0.3s; box-shadow: 0 0 40px rgba(183,25,191,0.3); }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 60px rgba(183,25,191,0.55); }
+    .btn-secondary { font-size: 0.85rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(246,251,239,0.6); text-decoration: none; display: flex; align-items: center; gap: 0.5rem; transition: color 0.25s; }
     .btn-secondary:hover { color: var(--cream); }
-
-    .btn-secondary svg { transition: transform 0.25s; }
-    .btn-secondary:hover svg { transform: translateX(4px); }
-
-    /* Scroll indicator */
-    .hero-scroll {
-      position: absolute;
-      bottom: 2.5rem;
-      right: 4rem;
-      z-index: 2;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 0.5rem;
-      opacity: 0.4;
-    }
-
-    .hero-scroll span {
-      font-size: 0.65rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      writing-mode: vertical-lr;
-    }
-
-    .scroll-line {
-      width: 1px;
-      height: 60px;
-      background: linear-gradient(to bottom, var(--cream), transparent);
-      animation: scrollLine 2s ease-in-out infinite;
-    }
-
-    @keyframes scrollLine {
-      0% { transform: scaleY(0); transform-origin: top; }
-      50% { transform: scaleY(1); transform-origin: top; }
-      51% { transform: scaleY(1); transform-origin: bottom; }
-      100% { transform: scaleY(0); transform-origin: bottom; }
-    }
+    .hero-scroll { position: absolute; bottom: 2.5rem; right: 4rem; z-index: 2; display: flex; flex-direction: column; align-items: center; gap: 0.5rem; opacity: 0.35; }
+    .hero-scroll span { font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; writing-mode: vertical-lr; }
+    .scroll-line { width: 1px; height: 60px; background: linear-gradient(to bottom, var(--cream), transparent); animation: scrollLine 2s ease-in-out infinite; }
+    @keyframes scrollLine { 0%{transform:scaleY(0);transform-origin:top} 50%{transform:scaleY(1);transform-origin:top} 51%{transform:scaleY(1);transform-origin:bottom} 100%{transform:scaleY(0);transform-origin:bottom} }
 
     /* ─── STATS BAR ─── */
-    .stats-bar {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 0;
-      border-top: 1px solid rgba(246, 251, 239, 0.08);
-      border-bottom: 1px solid rgba(246, 251, 239, 0.08);
-      padding: 0 4rem;
-    }
-
-    .stat-item {
-      padding: 2.5rem 3rem;
-      border-right: 1px solid rgba(246, 251, 239, 0.08);
-      display: flex;
-      flex-direction: column;
-      gap: 0.25rem;
-    }
-
+    .stats-bar { display: grid; grid-template-columns: repeat(3,1fr); border-top: 1px solid rgba(246,251,239,0.06); border-bottom: 1px solid rgba(246,251,239,0.06); padding: 0 4rem; }
+    .stat-item { padding: 2.5rem 3rem; border-right: 1px solid rgba(246,251,239,0.06); }
     .stat-item:last-child { border-right: none; }
+    .stat-number { font-family: var(--font-head); font-size: clamp(2rem,4vw,3.5rem); font-weight: 700; background: linear-gradient(135deg, var(--cream), rgba(246,251,239,0.45)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .stat-label { font-size: 0.75rem; font-weight: 400; letter-spacing: 0.06em; text-transform: uppercase; color: rgba(246,251,239,0.38); margin-top: 0.25rem; }
 
-    .stat-number {
-      font-family: var(--font-head);
-      font-size: clamp(2.2rem, 4vw, 3.5rem);
-      font-weight: 700;
-      background: linear-gradient(135deg, var(--cream), rgba(246, 251, 239, 0.5));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-
-    .stat-label {
-      font-size: 0.78rem;
-      font-weight: 400;
-      letter-spacing: 0.06em;
-      color: rgba(246, 251, 239, 0.4);
-      text-transform: uppercase;
-    }
-
-    /* ─── SECTIONS SHARED ─── */
-    section {
-      position: relative;
-      padding: 7rem 4rem;
-    }
-
-    .section-tag {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      font-size: 0.7rem;
-      font-weight: 600;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--magenta);
-      margin-bottom: 1.25rem;
-    }
-
-    .section-tag::before {
-      content: '';
-      display: block;
-      width: 20px;
-      height: 1px;
-      background: var(--magenta);
-    }
+    /* ─── SHARED ─── */
+    section { position: relative; padding: 7rem 4rem; }
+    .section-tag { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--magenta); margin-bottom: 1.25rem; }
+    .section-tag::before { content: ''; display: block; width: 20px; height: 1px; background: var(--magenta); }
 
     /* ─── ABOUT ─── */
-    #about {
-      background: var(--black);
-      border-top: 1px solid rgba(246, 251, 239, 0.06);
-    }
-
-    .about-inner {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 6rem;
-      align-items: center;
-      max-width: 1300px;
-      margin: 0 auto;
-    }
-
-    .about-left { position: relative; }
-
-    .about-title {
-      font-family: var(--font-head);
-      font-size: clamp(2.2rem, 4vw, 3.8rem);
-      font-weight: 700;
-      line-height: 1.1;
-      letter-spacing: -0.02em;
-      margin-bottom: 2rem;
-    }
-
-    .about-body {
-      font-size: 1.05rem;
-      font-weight: 300;
-      line-height: 1.85;
-      color: rgba(246, 251, 239, 0.65);
-      margin-bottom: 2.5rem;
-    }
-
-    .about-mission {
-      display: flex;
-      gap: 1rem;
-      padding: 1.5rem;
-      border: 1px solid rgba(183, 25, 191, 0.3);
-      border-radius: 12px;
-      background: rgba(183, 25, 191, 0.05);
-    }
-
-    .mission-icon {
-      width: 40px;
-      height: 40px;
-      flex-shrink: 0;
-      background: linear-gradient(135deg, var(--magenta), var(--indigo));
-      border-radius: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.1rem;
-    }
-
-    .mission-text { font-size: 0.9rem; line-height: 1.7; color: rgba(246, 251, 239, 0.75); }
+    #about { border-top: 1px solid rgba(246,251,239,0.06); }
+    .about-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center; max-width: 1300px; margin: 0 auto; }
+    .about-title { font-family: var(--font-head); font-size: clamp(2rem,3.8vw,3.6rem); font-weight: 700; line-height: 1.1; letter-spacing: -0.02em; margin-bottom: 1.75rem; }
+    .about-body { font-size: 1.02rem; font-weight: 300; line-height: 1.85; color: rgba(246,251,239,0.62); margin-bottom: 1.5rem; }
+    .about-diff { font-size: 0.9rem; font-weight: 400; line-height: 1.75; color: rgba(246,251,239,0.55); padding-left: 1rem; border-left: 2px solid var(--teal); margin-bottom: 2rem; }
+    .about-mission { display: flex; gap: 1rem; padding: 1.5rem; border: 1px solid rgba(183,25,191,0.25); border-radius: 12px; background: rgba(183,25,191,0.05); }
+    .mission-icon { width: 38px; height: 38px; flex-shrink: 0; background: linear-gradient(135deg, var(--magenta), var(--indigo)); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 1rem; }
+    .mission-text { font-size: 0.88rem; line-height: 1.7; color: rgba(246,251,239,0.72); }
     .mission-text strong { color: var(--cream); }
+    .about-card-main { background: linear-gradient(145deg, rgba(85,99,253,0.12), rgba(183,25,191,0.08)); border: 1px solid rgba(85,99,253,0.2); border-radius: 24px; padding: 2.5rem; position: relative; overflow: hidden; }
+    .about-card-main::before { content: ''; position: absolute; top: -40%; right: -20%; width: 280px; height: 280px; background: radial-gradient(circle, rgba(183,25,191,0.18), transparent 70%); border-radius: 50%; }
+    .about-values { display: flex; flex-direction: column; gap: 1.5rem; position: relative; z-index: 1; }
+    .value-item { display: flex; align-items: flex-start; gap: 1rem; }
+    .value-num { font-family: var(--font-head); font-size: 0.68rem; font-weight: 700; color: var(--magenta); letter-spacing: 0.1em; padding-top: 3px; min-width: 22px; }
+    .value-name { font-family: var(--font-head); font-size: 1.05rem; font-weight: 600; margin-bottom: 0.2rem; }
+    .value-desc { font-size: 0.8rem; color: rgba(246,251,239,0.48); line-height: 1.5; }
+    .about-badge { position: absolute; bottom: -1.5rem; left: -1.5rem; background: var(--black); border: 1px solid rgba(38,163,199,0.3); border-radius: 14px; padding: 1rem 1.25rem; display: flex; align-items: center; gap: 0.85rem; box-shadow: 0 20px 50px rgba(0,0,0,0.5); }
+    .badge-icon { width: 34px; height: 34px; background: linear-gradient(135deg, var(--teal), var(--indigo)); border-radius: 9px; display: flex; align-items: center; justify-content: center; font-size: 0.9rem; flex-shrink: 0; }
+    .badge-text { font-size: 0.73rem; line-height: 1.4; }
+    .badge-text strong { font-size: 0.95rem; font-family: var(--font-head); display: block; }
 
-    /* About right — visual card */
-    .about-visual {
-      position: relative;
-    }
+    /* ─── SERVICES ─── */
+    #services { border-top: 1px solid rgba(246,251,239,0.06); background: rgba(246,251,239,0.01); }
+    .services-inner { max-width: 1300px; margin: 0 auto; }
+    .services-header { margin-bottom: 3.5rem; }
+    .services-title { font-family: var(--font-head); font-size: clamp(2rem,3.5vw,3.2rem); font-weight: 700; letter-spacing: -0.02em; line-height: 1.1; }
+    .services-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.25rem; }
+    .service-card { position: relative; border: 1px solid rgba(246,251,239,0.07); border-radius: 18px; padding: 2rem; background: rgba(246,251,239,0.02); transition: border-color 0.3s, background 0.3s, transform 0.3s; cursor: default; overflow: hidden; }
+    .service-card.clickable { cursor: pointer; }
+    .service-card::before { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(183,25,191,0.06), rgba(85,99,253,0.06)); opacity: 0; transition: opacity 0.3s; border-radius: 18px; }
+    .service-card:hover { border-color: rgba(183,25,191,0.35); transform: translateY(-3px); }
+    .service-card:hover::before { opacity: 1; }
+    .service-icon { width: 44px; height: 44px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.25rem; margin-bottom: 1.25rem; }
+    .service-card:nth-child(1) .service-icon { background: linear-gradient(135deg,rgba(183,25,191,0.25),rgba(85,99,253,0.2)); }
+    .service-card:nth-child(2) .service-icon { background: linear-gradient(135deg,rgba(85,99,253,0.25),rgba(38,163,199,0.2)); }
+    .service-card:nth-child(3) .service-icon { background: linear-gradient(135deg,rgba(38,163,199,0.25),rgba(85,163,249,0.2)); }
+    .service-card:nth-child(4) .service-icon { background: linear-gradient(135deg,rgba(85,163,249,0.25),rgba(183,25,191,0.2)); }
+    .service-card:nth-child(5) .service-icon { background: linear-gradient(135deg,rgba(183,25,191,0.2),rgba(38,163,199,0.25)); }
+    .service-card:nth-child(6) .service-icon { background: linear-gradient(135deg,rgba(85,99,253,0.2),rgba(183,25,191,0.25)); }
+    .service-card:nth-child(7) .service-icon { background: linear-gradient(135deg,rgba(38,163,199,0.2),rgba(85,99,253,0.25)); }
+    .service-name { font-family: var(--font-head); font-size: 1rem; font-weight: 600; margin-bottom: 0.6rem; line-height: 1.3; }
+    .service-desc { font-size: 0.82rem; color: rgba(246,251,239,0.48); line-height: 1.6; }
+    .service-badge { display: inline-flex; align-items: center; gap: 0.3rem; margin-top: 1rem; font-size: 0.68rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--magenta); }
+    .service-badge svg { width: 10px; height: 10px; }
 
-    .about-card-main {
-      background: linear-gradient(145deg, rgba(85, 99, 253, 0.15), rgba(183, 25, 191, 0.1));
-      border: 1px solid rgba(85, 99, 253, 0.25);
-      border-radius: 24px;
-      padding: 3rem;
-      position: relative;
-      overflow: hidden;
-    }
+    /* Full-width 7th card */
+    .service-card.full { grid-column: 1 / -1; display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 2rem; }
+    .service-card.full .service-content { display: flex; flex-direction: column; }
 
-    .about-card-main::before {
-      content: '';
-      position: absolute;
-      top: -40%;
-      right: -20%;
-      width: 300px;
-      height: 300px;
-      background: radial-gradient(circle, rgba(183, 25, 191, 0.2), transparent 70%);
-      border-radius: 50%;
-    }
-
-    .about-values {
-      display: flex;
-      flex-direction: column;
-      gap: 1.5rem;
-      position: relative;
-      z-index: 1;
-    }
-
-    .value-item {
-      display: flex;
-      align-items: flex-start;
-      gap: 1rem;
-    }
-
-    .value-num {
-      font-family: var(--font-head);
-      font-size: 0.7rem;
-      font-weight: 700;
-      color: var(--magenta);
-      letter-spacing: 0.1em;
-      padding-top: 2px;
-      min-width: 24px;
-    }
-
-    .value-name {
-      font-family: var(--font-head);
-      font-size: 1.15rem;
-      font-weight: 600;
-      margin-bottom: 0.25rem;
-    }
-
-    .value-desc {
-      font-size: 0.82rem;
-      color: rgba(246, 251, 239, 0.5);
-      line-height: 1.5;
-    }
-
-    /* Floating badge */
-    .about-badge {
-      position: absolute;
-      bottom: -1.5rem;
-      left: -1.5rem;
-      background: var(--black);
-      border: 1px solid rgba(38, 163, 199, 0.35);
-      border-radius: 16px;
-      padding: 1.2rem 1.5rem;
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      min-width: 200px;
-      box-shadow: 0 20px 60px rgba(0,0,0,0.5);
-    }
-
-    .badge-icon {
-      width: 36px;
-      height: 36px;
-      background: linear-gradient(135deg, var(--teal), var(--indigo));
-      border-radius: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1rem;
-    }
-
-    .badge-text { font-size: 0.75rem; line-height: 1.4; }
-    .badge-text strong { font-size: 1rem; font-family: var(--font-head); display: block; }
+    /* ─── NOTION MODAL ─── */
+    .modal-overlay { display: none; position: fixed; inset: 0; background: rgba(7,5,1,0.92); backdrop-filter: blur(12px); z-index: 9000; align-items: center; justify-content: center; padding: 2rem; }
+    .modal-overlay.active { display: flex; }
+    .modal-box { background: #0f0d12; border: 1px solid rgba(85,99,253,0.25); border-radius: 24px; max-width: 900px; width: 100%; max-height: 90vh; overflow-y: auto; padding: 2.5rem; position: relative; }
+    .modal-close { position: absolute; top: 1.5rem; right: 1.5rem; width: 34px; height: 34px; border-radius: 50%; background: rgba(246,251,239,0.08); border: none; color: var(--cream); cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; transition: background 0.2s; }
+    .modal-close:hover { background: rgba(246,251,239,0.15); }
+    .modal-title { font-family: var(--font-head); font-size: 1.6rem; font-weight: 700; margin-bottom: 0.5rem; }
+    .modal-sub { font-size: 0.88rem; color: rgba(246,251,239,0.5); margin-bottom: 2rem; }
+    .modal-img { width: 100%; border-radius: 14px; border: 1px solid rgba(246,251,239,0.08); margin-bottom: 1.5rem; display: block; }
+    /* NOTE: Replace 'notion-dashboard.png' with actual file in Kurva_Assets */
+    .modal-img-placeholder { width: 100%; aspect-ratio: 16/9; background: linear-gradient(135deg, rgba(85,99,253,0.15), rgba(38,163,199,0.1)); border-radius: 14px; border: 1px solid rgba(85,99,253,0.2); display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem; color: rgba(246,251,239,0.3); font-size: 0.85rem; letter-spacing: 0.1em; }
+    .modal-cta { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.82rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--cream); background: linear-gradient(135deg, var(--indigo), var(--teal)); padding: 0.85rem 2rem; border-radius: 100px; text-decoration: none; transition: opacity 0.25s; }
+    .modal-cta:hover { opacity: 0.85; }
 
     /* ─── CLIENTS ─── */
-    #clients {
-      background: rgba(246, 251, 239, 0.02);
-      border-top: 1px solid rgba(246, 251, 239, 0.06);
-      border-bottom: 1px solid rgba(246, 251, 239, 0.06);
-    }
-
-    .clients-inner {
-      max-width: 1300px;
-      margin: 0 auto;
-    }
-
-    .clients-header {
-      display: flex;
-      align-items: flex-end;
-      justify-content: space-between;
-      margin-bottom: 4rem;
-      gap: 2rem;
-      flex-wrap: wrap;
-    }
-
-    .clients-title {
-      font-family: var(--font-head);
-      font-size: clamp(2rem, 3.5vw, 3.2rem);
-      font-weight: 700;
-      letter-spacing: -0.02em;
-      line-height: 1.1;
-    }
-
-    .clients-subtitle {
-      font-size: 0.9rem;
-      color: rgba(246, 251, 239, 0.45);
-      max-width: 280px;
-      line-height: 1.6;
-      text-align: right;
-    }
-
-    .clients-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 1.5rem;
-    }
-
-    .client-card {
-      position: relative;
-      aspect-ratio: 4/3;
-      border: 1px solid rgba(246, 251, 239, 0.08);
-      border-radius: 16px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 1rem;
-      padding: 2rem;
-      background: rgba(246, 251, 239, 0.02);
-      cursor: pointer;
-      transition: border-color 0.3s, background 0.3s, transform 0.3s;
-      overflow: hidden;
-      text-align: center;
-    }
-
-    .client-card::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(135deg, rgba(183, 25, 191, 0.08), rgba(85, 99, 253, 0.08));
-      opacity: 0;
-      transition: opacity 0.3s;
-    }
-
-    .client-card:hover {
-      border-color: rgba(183, 25, 191, 0.4);
-      background: rgba(183, 25, 191, 0.04);
-      transform: translateY(-4px);
-    }
-
+    #clients { border-top: 1px solid rgba(246,251,239,0.06); }
+    .clients-inner { max-width: 1300px; margin: 0 auto; }
+    .clients-header { display: flex; align-items: flex-end; justify-content: space-between; margin-bottom: 3.5rem; gap: 2rem; flex-wrap: wrap; }
+    .clients-title { font-family: var(--font-head); font-size: clamp(2rem,3.5vw,3.2rem); font-weight: 700; letter-spacing: -0.02em; line-height: 1.1; }
+    .clients-sub { font-size: 0.88rem; color: rgba(246,251,239,0.4); max-width: 260px; line-height: 1.6; text-align: right; }
+    .clients-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 1.25rem; margin-bottom: 4rem; }
+    .client-card { border: 1px solid rgba(246,251,239,0.07); border-radius: 16px; aspect-ratio: 4/3; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.75rem; padding: 2rem; background: rgba(246,251,239,0.02); transition: border-color 0.3s, transform 0.3s; overflow: hidden; position: relative; }
+    .client-card::before { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg,rgba(183,25,191,0.07),rgba(85,99,253,0.07)); opacity: 0; transition: opacity 0.3s; }
+    .client-card:hover { border-color: rgba(183,25,191,0.35); transform: translateY(-3px); }
     .client-card:hover::before { opacity: 1; }
+    /* Logo image inside card — will show when file is present */
+    .client-logo-img { max-width: 80%; max-height: 60px; object-fit: contain; filter: brightness(0) invert(1); opacity: 0.75; transition: opacity 0.3s; position: relative; z-index: 1; }
+    .client-card:hover .client-logo-img { opacity: 1; }
+    /* Fallback text logo */
+    .client-logo-text { font-family: var(--font-head); font-size: 1rem; font-weight: 700; letter-spacing: 0.05em; text-align: center; position: relative; z-index: 1; }
+    .client-type { font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(246,251,239,0.32); position: relative; z-index: 1; text-align: center; }
 
-    .client-initial {
-      width: 56px;
-      height: 56px;
-      border-radius: 14px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: var(--font-head);
-      font-size: 1.5rem;
-      font-weight: 700;
-      position: relative;
-      z-index: 1;
-    }
+    /* Testimonial */
+    .testimonial-wrap { border: 1px solid rgba(246,251,239,0.07); border-radius: 20px; padding: 3rem; background: rgba(246,251,239,0.02); position: relative; overflow: hidden; }
+    .testimonial-wrap::before { content: '\201C'; position: absolute; top: 1rem; left: 2rem; font-size: 8rem; font-family: Georgia, serif; line-height: 1; color: rgba(183,25,191,0.12); pointer-events: none; }
+    .testimonial-text { font-size: 1.05rem; font-weight: 300; line-height: 1.85; color: rgba(246,251,239,0.72); max-width: 780px; margin-bottom: 2rem; position: relative; z-index: 1; font-style: italic; }
+    .testimonial-author { display: flex; align-items: center; gap: 1rem; }
+    .author-avatar { width: 44px; height: 44px; border-radius: 50%; background: linear-gradient(135deg, var(--indigo), var(--teal)); display: flex; align-items: center; justify-content: center; font-family: var(--font-head); font-size: 1rem; font-weight: 700; flex-shrink: 0; }
+    .author-info { display: flex; flex-direction: column; }
+    .author-name { font-family: var(--font-head); font-size: 0.95rem; font-weight: 600; }
+    .author-role { font-size: 0.75rem; color: rgba(246,251,239,0.4); }
 
-    .client-card:nth-child(1) .client-initial { background: linear-gradient(135deg, var(--magenta), #7a0f80); }
-    .client-card:nth-child(2) .client-initial { background: linear-gradient(135deg, var(--indigo), #2e3ab3); }
-    .client-card:nth-child(3) .client-initial { background: linear-gradient(135deg, var(--teal), #1a6e88); }
-    .client-card:nth-child(4) .client-initial { background: linear-gradient(135deg, var(--blue), #2a5fbf); }
-
-    .client-name {
-      font-family: var(--font-head);
-      font-size: 0.95rem;
-      font-weight: 600;
-      letter-spacing: 0.02em;
-      position: relative;
-      z-index: 1;
-    }
-
-    .client-type {
-      font-size: 0.7rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: rgba(246, 251, 239, 0.35);
-      position: relative;
-      z-index: 1;
-    }
-
-    /* Marquee strip */
-    .marquee-wrap {
-      margin-top: 4rem;
-      overflow: hidden;
-      border-top: 1px solid rgba(246, 251, 239, 0.06);
-      padding-top: 2.5rem;
-    }
-
-    .marquee-track {
-      display: flex;
-      gap: 4rem;
-      animation: marquee 18s linear infinite;
-      width: max-content;
-    }
-
+    /* Marquee */
+    .marquee-wrap { overflow: hidden; border-top: 1px solid rgba(246,251,239,0.06); padding-top: 2.5rem; margin-top: 3rem; }
+    .marquee-track { display: flex; gap: 4rem; animation: marquee 20s linear infinite; width: max-content; }
     .marquee-wrap:hover .marquee-track { animation-play-state: paused; }
+    @keyframes marquee { from{transform:translateX(0)} to{transform:translateX(-50%)} }
+    .marquee-item { font-family: var(--font-head); font-size: 0.72rem; font-weight: 600; letter-spacing: 0.25em; text-transform: uppercase; color: rgba(246,251,239,0.18); white-space: nowrap; display: flex; align-items: center; gap: 4rem; }
+    .marquee-item::after { content: '✦'; color: var(--magenta); font-size: 0.5rem; }
 
-    @keyframes marquee {
-      from { transform: translateX(0); }
-      to { transform: translateX(-50%); }
-    }
+    /* ─── CTA / CONTACT ─── */
+    #cta { border-top: 1px solid rgba(246,251,239,0.06); overflow: hidden; }
+    .cta-bg-orb { position: absolute; width: 70vw; height: 70vw; border-radius: 50%; background: radial-gradient(circle,rgba(183,25,191,0.1) 0%,rgba(85,99,253,0.07) 40%,transparent 70%); top: 50%; left: 50%; transform: translate(-50%,-50%); pointer-events: none; }
+    .cta-inner { position: relative; z-index: 1; max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: start; }
+    .cta-left {}
+    .cta-eyebrow { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--teal); margin-bottom: 1.5rem; }
+    .cta-eyebrow::before { content: ''; display: block; width: 20px; height: 1px; background: var(--teal); }
+    .cta-title { font-family: var(--font-head); font-size: clamp(2.4rem,5vw,4.5rem); font-weight: 700; letter-spacing: -0.03em; line-height: 1.05; margin-bottom: 1.25rem; }
+    .cta-title .gradient-text { background: linear-gradient(135deg, var(--magenta), var(--indigo), var(--teal)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .cta-body { font-size: 1rem; font-weight: 300; line-height: 1.75; color: rgba(246,251,239,0.52); margin-bottom: 2rem; }
+    .cta-socials { display: flex; gap: 1rem; }
+    .social-link { display: flex; align-items: center; gap: 0.5rem; font-size: 0.75rem; font-weight: 500; letter-spacing: 0.08em; color: rgba(246,251,239,0.45); text-decoration: none; border: 1px solid rgba(246,251,239,0.12); padding: 0.5rem 1rem; border-radius: 100px; transition: color 0.25s, border-color 0.25s; }
+    .social-link:hover { color: var(--cream); border-color: rgba(246,251,239,0.35); }
+    .social-link svg { width: 14px; height: 14px; }
 
-    .marquee-item {
-      font-family: var(--font-head);
-      font-size: 0.75rem;
-      font-weight: 600;
-      letter-spacing: 0.25em;
-      text-transform: uppercase;
-      color: rgba(246, 251, 239, 0.2);
-      white-space: nowrap;
-      display: flex;
-      align-items: center;
-      gap: 4rem;
-    }
-
-    .marquee-item::after {
-      content: '✦';
-      color: var(--magenta);
-      font-size: 0.55rem;
-    }
-
-    /* ─── CTA ─── */
-    #cta {
-      position: relative;
-      padding: 8rem 4rem;
-      overflow: hidden;
-      background: var(--black);
-      border-top: 1px solid rgba(246, 251, 239, 0.06);
-    }
-
-    .cta-bg-orb {
-      position: absolute;
-      width: 70vw;
-      height: 70vw;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(183, 25, 191, 0.12) 0%, rgba(85, 99, 253, 0.08) 40%, transparent 70%);
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      pointer-events: none;
-    }
-
-    .cta-inner {
-      position: relative;
-      z-index: 1;
-      max-width: 800px;
-      margin: 0 auto;
-      text-align: center;
-    }
-
-    .cta-eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      font-size: 0.72rem;
-      font-weight: 600;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--teal);
-      margin-bottom: 1.5rem;
-    }
-
-    .cta-eyebrow::before, .cta-eyebrow::after {
-      content: '';
-      display: block;
-      width: 20px;
-      height: 1px;
-      background: var(--teal);
-    }
-
-    .cta-title {
-      font-family: var(--font-head);
-      font-size: clamp(2.8rem, 6vw, 5.5rem);
-      font-weight: 700;
-      letter-spacing: -0.03em;
-      line-height: 1.05;
-      margin-bottom: 1.5rem;
-    }
-
-    .cta-title .gradient-text {
-      background: linear-gradient(135deg, var(--magenta) 0%, var(--indigo) 50%, var(--teal) 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-
-    .cta-body {
-      font-size: 1.05rem;
-      font-weight: 300;
-      line-height: 1.75;
-      color: rgba(246, 251, 239, 0.55);
-      max-width: 520px;
-      margin: 0 auto 3rem;
-    }
-
-    .cta-actions {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 1.5rem;
-      flex-wrap: wrap;
-    }
-
-    .cta-btn-main {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.6rem;
-      font-size: 0.88rem;
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--cream);
-      background: linear-gradient(135deg, var(--magenta), var(--indigo));
-      padding: 1.1rem 2.8rem;
-      border-radius: 100px;
-      text-decoration: none;
-      transition: transform 0.3s, box-shadow 0.3s;
-      box-shadow: 0 0 50px rgba(183, 25, 191, 0.4);
-    }
-
-    .cta-btn-main:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 12px 70px rgba(183, 25, 191, 0.6);
-    }
-
-    .cta-btn-outline {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.6rem;
-      font-size: 0.88rem;
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--cream);
-      border: 1px solid rgba(246, 251, 239, 0.25);
-      padding: 1.1rem 2.8rem;
-      border-radius: 100px;
-      text-decoration: none;
-      transition: border-color 0.25s, background 0.25s;
-    }
-
-    .cta-btn-outline:hover {
-      border-color: rgba(246, 251, 239, 0.55);
-      background: rgba(246, 251, 239, 0.05);
-    }
+    /* Notion form embed */
+    .form-container { background: rgba(246,251,239,0.02); border: 1px solid rgba(246,251,239,0.08); border-radius: 18px; overflow: hidden; }
+    .form-header { padding: 1.25rem 1.5rem; border-bottom: 1px solid rgba(246,251,239,0.06); display: flex; align-items: center; gap: 0.75rem; }
+    .form-dot { width: 8px; height: 8px; border-radius: 50%; }
+    .form-dot:nth-child(1) { background: #ff5f56; }
+    .form-dot:nth-child(2) { background: #febc2e; }
+    .form-dot:nth-child(3) { background: #28c840; }
+    .form-label { font-size: 0.72rem; letter-spacing: 0.1em; color: rgba(246,251,239,0.3); margin-left: auto; }
+    .form-iframe { width: 100%; height: 520px; border: none; display: block; background: transparent; }
+    .form-fallback { padding: 3rem 2rem; text-align: center; display: none; }
+    .form-fallback p { font-size: 0.9rem; color: rgba(246,251,239,0.5); margin-bottom: 1.5rem; }
+    .form-fallback a { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.85rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--cream); background: linear-gradient(135deg, var(--magenta), var(--indigo)); padding: 0.9rem 2rem; border-radius: 100px; text-decoration: none; }
 
     /* ─── FOOTER ─── */
-    footer {
-      padding: 2.5rem 4rem;
-      border-top: 1px solid rgba(246, 251, 239, 0.06);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1rem;
-      flex-wrap: wrap;
-    }
-
-    .footer-logo {
-      font-family: var(--font-head);
-      font-size: 1.1rem;
-      font-weight: 700;
-      letter-spacing: 0.25em;
-      color: var(--cream);
-    }
-
-    .footer-copy {
-      font-size: 0.75rem;
-      color: rgba(246, 251, 239, 0.3);
-      letter-spacing: 0.05em;
-    }
-
-    .footer-links {
-      display: flex;
-      gap: 2rem;
-      list-style: none;
-    }
-
-    .footer-links a {
-      font-size: 0.72rem;
-      font-weight: 500;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: rgba(246, 251, 239, 0.35);
-      text-decoration: none;
-      transition: color 0.25s;
-    }
-
+    footer { padding: 2.5rem 4rem; border-top: 1px solid rgba(246,251,239,0.06); display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
+    .footer-logo { font-family: var(--font-head); font-size: 1.1rem; font-weight: 700; letter-spacing: 0.25em; color: var(--cream); }
+    .footer-links { display: flex; gap: 2rem; list-style: none; }
+    .footer-links a { font-size: 0.7rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(246,251,239,0.32); text-decoration: none; transition: color 0.25s; }
     .footer-links a:hover { color: var(--cream); }
+    .footer-copy { font-size: 0.72rem; color: rgba(246,251,239,0.28); }
+    .privacy-link { font-size: 0.7rem; color: rgba(246,251,239,0.28); text-decoration: underline; cursor: pointer; background: none; border: none; transition: color 0.25s; }
+    .privacy-link:hover { color: rgba(246,251,239,0.6); }
+
+    /* ─── PRIVACY MODAL ─── */
+    .privacy-overlay { display: none; position: fixed; inset: 0; background: rgba(7,5,1,0.94); backdrop-filter: blur(14px); z-index: 9500; align-items: center; justify-content: center; padding: 2rem; }
+    .privacy-overlay.active { display: flex; }
+    .privacy-box { background: #0f0d12; border: 1px solid rgba(246,251,239,0.1); border-radius: 20px; max-width: 680px; width: 100%; max-height: 88vh; overflow-y: auto; padding: 2.5rem; position: relative; }
+    .privacy-box h2 { font-family: var(--font-head); font-size: 1.4rem; font-weight: 700; margin-bottom: 0.5rem; }
+    .privacy-box h3 { font-family: var(--font-head); font-size: 0.95rem; font-weight: 600; color: var(--magenta); margin: 1.5rem 0 0.5rem; }
+    .privacy-box p { font-size: 0.85rem; color: rgba(246,251,239,0.62); line-height: 1.75; margin-bottom: 0.75rem; }
+    .privacy-box ul { padding-left: 1.25rem; margin-bottom: 0.75rem; }
+    .privacy-box li { font-size: 0.82rem; color: rgba(246,251,239,0.55); line-height: 1.65; }
+    .privacy-close { position: absolute; top: 1.25rem; right: 1.25rem; width: 32px; height: 32px; border-radius: 50%; background: rgba(246,251,239,0.07); border: none; color: var(--cream); cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 1rem; transition: background 0.2s; }
+    .privacy-close:hover { background: rgba(246,251,239,0.14); }
+    .privacy-eyebrow { font-size: 0.68rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--magenta); margin-bottom: 0.75rem; }
 
     /* ─── SCROLL REVEAL ─── */
-    .reveal {
-      opacity: 0;
-      transform: translateY(40px);
-      transition: opacity 0.7s ease, transform 0.7s ease;
-    }
-
-    .reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
+    .reveal { opacity: 0; transform: translateY(36px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
     .reveal-delay-1 { transition-delay: 0.1s; }
     .reveal-delay-2 { transition-delay: 0.2s; }
     .reveal-delay-3 { transition-delay: 0.3s; }
     .reveal-delay-4 { transition-delay: 0.4s; }
 
     /* ─── RESPONSIVE ─── */
-    @media (max-width: 1024px) {
-      nav { padding: 1.25rem 2rem; }
-      section { padding: 5rem 2rem; }
-      #hero { padding: 0 2rem 5rem; }
-      .stats-bar { padding: 0 2rem; }
-      .about-inner { grid-template-columns: 1fr; gap: 4rem; }
-      .clients-grid { grid-template-columns: repeat(2, 1fr); }
-      footer { padding: 2rem; }
+    @media(max-width:1024px){
+      nav,section,footer{padding-left:2.5rem;padding-right:2.5rem;}
+      #hero{padding:0 2.5rem 5rem;}
+      .stats-bar{padding:0 2.5rem;}
+      .about-inner{grid-template-columns:1fr;gap:4rem;}
+      .services-grid{grid-template-columns:repeat(2,1fr);}
+      .clients-grid{grid-template-columns:repeat(2,1fr);}
+      .cta-inner{grid-template-columns:1fr;}
     }
-
-    @media (max-width: 680px) {
-      nav { padding: 1rem 1.5rem; }
-      .nav-links { display: none; }
-      section { padding: 4rem 1.5rem; }
-      #hero { padding: 0 1.5rem 4rem; }
-      .stats-bar { grid-template-columns: 1fr; padding: 0; }
-      .stat-item { border-right: none; border-bottom: 1px solid rgba(246, 251, 239, 0.08); padding: 2rem 1.5rem; }
-      .stat-item:last-child { border-bottom: none; }
-      .clients-grid { grid-template-columns: 1fr 1fr; }
-      .clients-header { flex-direction: column; align-items: flex-start; }
-      .clients-subtitle { text-align: left; }
-      .about-badge { position: static; margin-top: 1.5rem; }
-      footer { flex-direction: column; align-items: flex-start; padding: 2rem 1.5rem; }
-      #cta { padding: 5rem 1.5rem; }
+    @media(max-width:680px){
+      nav{padding:1rem 1.5rem;}
+      .nav-links{display:none;}
+      section{padding:4rem 1.5rem;}
+      #hero{padding:0 1.5rem 4rem;}
+      .stats-bar{grid-template-columns:1fr;padding:0;}
+      .stat-item{border-right:none;border-bottom:1px solid rgba(246,251,239,0.06);padding:2rem 1.5rem;}
+      .stat-item:last-child{border-bottom:none;}
+      .services-grid{grid-template-columns:1fr;}
+      .service-card.full{grid-template-columns:1fr;}
+      .clients-grid{grid-template-columns:1fr 1fr;}
+      .clients-header{flex-direction:column;align-items:flex-start;}
+      .clients-sub{text-align:left;}
+      .about-badge{position:static;margin-top:1.5rem;}
+      footer{flex-direction:column;align-items:flex-start;padding:2rem 1.5rem;gap:1.5rem;}
     }
   </style>
 </head>
 <body>
 
-  <!-- ─── NAV ─── -->
-  <nav id="navbar">
-    <a class="nav-logo" href="#">KURVA</a>
-    <ul class="nav-links">
-      <li><a href="#about">Nosotros</a></li>
-      <li><a href="#clients">Clientes</a></li>
-      <li><a href="#cta">Contacto</a></li>
-    </ul>
-    <a class="nav-cta" href="#cta">Hablemos</a>
-  </nav>
+<!-- ─── NAV ─── -->
+<nav id="navbar">
+  <a class="nav-logo" href="#">KURVA</a>
+  <ul class="nav-links">
+    <li><a href="#about">Nosotros</a></li>
+    <li><a href="#services">Servicios</a></li>
+    <li><a href="#clients">Clientes</a></li>
+    <li><a href="#cta">Contacto</a></li>
+  </ul>
+  <a class="nav-cta" href="#cta">Hablemos</a>
+</nav>
 
-  <!-- ─── HERO ─── -->
-  <section id="hero">
-    <div class="hero-bg">
-      <div class="orb orb-1"></div>
-      <div class="orb orb-2"></div>
-      <div class="orb orb-3"></div>
-      <div class="hero-grid"></div>
-    </div>
-
-    <div class="hero-content">
-      <div class="hero-tag">Transformación Digital &amp; Estrategia</div>
-      <h1 class="hero-title">
-        La nueva manera<br />
-        de <span class="accent">crecer tu empresa.</span>
-      </h1>
-      <p class="hero-sub">
-        Aceleramos el crecimiento de organizaciones a través de estrategia, tecnología y una visión que desafía el statu quo.
-      </p>
-      <div class="hero-actions">
-        <a class="btn-primary" href="#cta">
-          Comenzar ahora
-          <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-            <path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </a>
-        <a class="btn-secondary" href="#about">
-          Conoce KURVA
-          <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-            <path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </a>
-      </div>
-    </div>
-
-    <div class="hero-scroll">
-      <div class="scroll-line"></div>
-      <span>Scroll</span>
-    </div>
-  </section>
-
-  <!-- ─── STATS BAR ─── -->
-  <div class="stats-bar">
-    <div class="stat-item reveal">
-      <span class="stat-number">4+</span>
-      <span class="stat-label">Clientes activos</span>
-    </div>
-    <div class="stat-item reveal reveal-delay-1">
-      <span class="stat-number">100%</span>
-      <span class="stat-label">Proyectos entregados</span>
-    </div>
-    <div class="stat-item reveal reveal-delay-2">
-      <span class="stat-number">∞</span>
-      <span class="stat-label">Potencial de crecimiento</span>
+<!-- ─── HERO ─── -->
+<section id="hero">
+  <canvas id="waveCanvas"></canvas>
+  <div class="hero-grid"></div>
+  <div class="hero-content">
+    <div class="hero-tag">Transformación Digital &amp; Estrategia</div>
+    <p class="hero-slogan">Estás listo para subir</p>
+    <h1 class="hero-title">
+      La nueva manera<br />
+      de <span class="accent">crecer tu empresa.</span>
+    </h1>
+    <p class="hero-sub">
+      Ayudamos a startups, emprendedores y empresas medianas y grandes a transformar sus operaciones, sistemas y estrategia para escalar en serio.
+    </p>
+    <div class="hero-actions">
+      <a class="btn-primary" href="#cta">
+        Comenzar ahora
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <a class="btn-secondary" href="#services">
+        Ver servicios
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
     </div>
   </div>
+  <div class="hero-scroll">
+    <div class="scroll-line"></div>
+    <span>Scroll</span>
+  </div>
+</section>
 
-  <!-- ─── ABOUT ─── -->
-  <section id="about">
-    <div class="about-inner">
-      <div class="about-left">
-        <div class="section-tag reveal">Quiénes somos</div>
-        <h2 class="about-title reveal reveal-delay-1">
-          Jóvenes que<br />
-          <span style="color: rgba(246,251,239,0.45);">redefinimos</span><br />
-          la transformación.
-        </h2>
-        <p class="about-body reveal reveal-delay-2">
-          Somos un grupo de jóvenes que buscan cambiar la manera de transformar las organizaciones. Rompemos con los modelos tradicionales de consultoría para traer perspectiva fresca, agilidad real y resultados medibles.
+<!-- ─── STATS BAR ─── -->
+<div class="stats-bar">
+  <div class="stat-item reveal">
+    <div class="stat-number">7+</div>
+    <div class="stat-label">Personas en el equipo</div>
+  </div>
+  <div class="stat-item reveal reveal-delay-1">
+    <div class="stat-number">4+</div>
+    <div class="stat-label">Clientes activos</div>
+  </div>
+  <div class="stat-item reveal reveal-delay-2">
+    <div class="stat-number">100%</div>
+    <div class="stat-label">Proyectos entregados</div>
+  </div>
+</div>
+
+<!-- ─── ABOUT ─── -->
+<section id="about">
+  <div class="about-inner">
+    <div>
+      <div class="section-tag reveal">Quiénes somos</div>
+      <h2 class="about-title reveal reveal-delay-1">
+        Jóvenes que<br />
+        <span style="color:rgba(246,251,239,0.4)">redefinimos</span><br />
+        la transformación.
+      </h2>
+      <p class="about-body reveal reveal-delay-2">
+        Somos un equipo de 7 personas que busca cambiar la manera de transformar las organizaciones. Rompemos con los modelos tradicionales de consultoría para traer perspectiva fresca, agilidad real y resultados medibles.
+      </p>
+      <p class="about-diff reveal reveal-delay-2">
+        Trabajamos distintos ejes: desde soluciones digitales rápidas hasta cambios completos y prolongados en organizaciones más robustas.
+      </p>
+      <div class="about-mission reveal reveal-delay-3">
+        <div class="mission-icon">🎯</div>
+        <p class="mission-text">
+          <strong>Nuestra misión:</strong> convertir buenas empresas en excelentes empresas, acelerando su potencial a través de estrategia digital y una cultura de transformación continua.
         </p>
-        <div class="about-mission reveal reveal-delay-3">
-          <div class="mission-icon">🎯</div>
-          <p class="mission-text">
-            <strong>Nuestra misión:</strong> convertir buenas empresas en excelentes empresas, acelerando su potencial a través de estrategia digital y una cultura de transformación continua.
-          </p>
-        </div>
       </div>
-
-      <div class="about-visual reveal reveal-delay-2">
-        <div class="about-card-main">
-          <div class="about-values">
-            <div class="value-item">
-              <span class="value-num">01</span>
-              <div>
-                <div class="value-name">Estrategia Digital</div>
-                <div class="value-desc">Diseñamos hojas de ruta claras para la transformación de tu negocio.</div>
-              </div>
-            </div>
-            <div class="value-item">
-              <span class="value-num">02</span>
-              <div>
-                <div class="value-name">Innovación Ágil</div>
-                <div class="value-desc">Metodologías modernas para ejecutar cambios sin fricciones.</div>
-              </div>
-            </div>
-            <div class="value-item">
-              <span class="value-num">03</span>
-              <div>
-                <div class="value-name">Cultura &amp; Liderazgo</div>
-                <div class="value-desc">Potenciamos equipos para que lideren desde adentro.</div>
-              </div>
-            </div>
-            <div class="value-item">
-              <span class="value-num">04</span>
-              <div>
-                <div class="value-name">Resultados Medibles</div>
-                <div class="value-desc">Cada acción está conectada a métricas y objetivos concretos.</div>
-              </div>
-            </div>
+    </div>
+    <div style="position:relative;">
+      <div class="about-card-main reveal reveal-delay-2">
+        <div class="about-values">
+          <div class="value-item">
+            <span class="value-num">01</span>
+            <div><div class="value-name">Estrategia Digital</div><div class="value-desc">Diseñamos hojas de ruta claras para la transformación de tu negocio.</div></div>
           </div>
-        </div>
-
-        <div class="about-badge">
-          <div class="badge-icon">⚡</div>
-          <div class="badge-text">
-            <strong>Aceleración</strong>
-            Resultados en semanas, no años.
+          <div class="value-item">
+            <span class="value-num">02</span>
+            <div><div class="value-name">Innovación Ágil</div><div class="value-desc">Metodologías modernas para ejecutar cambios sin fricciones.</div></div>
+          </div>
+          <div class="value-item">
+            <span class="value-num">03</span>
+            <div><div class="value-name">Cultura &amp; Liderazgo</div><div class="value-desc">Potenciamos equipos para que lideren desde adentro.</div></div>
+          </div>
+          <div class="value-item">
+            <span class="value-num">04</span>
+            <div><div class="value-name">Resultados Medibles</div><div class="value-desc">Cada acción conectada a métricas y objetivos concretos.</div></div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
-
-  <!-- ─── CLIENTS ─── -->
-  <section id="clients">
-    <div class="clients-inner">
-      <div class="clients-header">
-        <div>
-          <div class="section-tag reveal">Clientes</div>
-          <h2 class="clients-title reveal reveal-delay-1">Empresas que<br />confiaron en KURVA.</h2>
-        </div>
-        <p class="clients-subtitle reveal reveal-delay-2">Organizaciones que decidieron dar el salto hacia la excelencia.</p>
-      </div>
-
-      <div class="clients-grid">
-        <div class="client-card reveal reveal-delay-1">
-          <div class="client-initial">L</div>
-          <div class="client-name">Lasermaq</div>
-          <div class="client-type">Manufactura &amp; Tecnología</div>
-        </div>
-        <div class="client-card reveal reveal-delay-2">
-          <div class="client-initial">M</div>
-          <div class="client-name">MxPhone</div>
-          <div class="client-type">Telecomunicaciones</div>
-        </div>
-        <div class="client-card reveal reveal-delay-3">
-          <div class="client-initial">A</div>
-          <div class="client-name">Agencia TresPuntoUno</div>
-          <div class="client-type">Marketing &amp; Creatividad</div>
-        </div>
-        <div class="client-card reveal reveal-delay-4">
-          <div class="client-initial">C</div>
-          <div class="client-name">Creativ3 Studios</div>
-          <div class="client-type">Producción Digital</div>
-        </div>
-      </div>
-
-      <!-- Marquee -->
-      <div class="marquee-wrap">
-        <div class="marquee-track">
-          <span class="marquee-item">Lasermaq</span>
-          <span class="marquee-item">MxPhone</span>
-          <span class="marquee-item">Agencia TresPuntoUno</span>
-          <span class="marquee-item">Creativ3 Studios</span>
-          <span class="marquee-item">Transformación Digital</span>
-          <span class="marquee-item">Estrategia Empresarial</span>
-          <!-- duplicate for loop -->
-          <span class="marquee-item">Lasermaq</span>
-          <span class="marquee-item">MxPhone</span>
-          <span class="marquee-item">Agencia TresPuntoUno</span>
-          <span class="marquee-item">Creativ3 Studios</span>
-          <span class="marquee-item">Transformación Digital</span>
-          <span class="marquee-item">Estrategia Empresarial</span>
-        </div>
+      <div class="about-badge reveal reveal-delay-3">
+        <div class="badge-icon">⚡</div>
+        <div class="badge-text"><strong>Aceleración</strong>Resultados en semanas, no años.</div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- ─── CTA ─── -->
-  <section id="cta">
-    <div class="cta-bg-orb"></div>
-    <div class="cta-inner">
+<!-- ─── SERVICES ─── -->
+<section id="services">
+  <div class="services-inner">
+    <div class="services-header">
+      <div class="section-tag reveal">Servicios</div>
+      <h2 class="services-title reveal reveal-delay-1">Lo que hacemos<br /><span style="color:rgba(246,251,239,0.4)">para tu negocio.</span></h2>
+    </div>
+    <div class="services-grid">
+
+      <div class="service-card reveal reveal-delay-1">
+        <div class="service-icon">⚙️</div>
+        <div class="service-name">Consultoría en Transformación Digital y Sistemas</div>
+        <div class="service-desc">Implementamos y optimizamos Odoo, Notion y n8n para centralizar y automatizar tus operaciones.</div>
+      </div>
+
+      <div class="service-card reveal reveal-delay-2">
+        <div class="service-icon">🏢</div>
+        <div class="service-name">Consultoría en Transformación Empresarial</div>
+        <div class="service-desc">Acompañamos cambios estratégicos profundos y prolongados en organizaciones que quieren escalar con solidez.</div>
+      </div>
+
+      <div class="service-card reveal reveal-delay-3">
+        <div class="service-icon">🎛️</div>
+        <div class="service-name">Centros de Control en Notion para Startups</div>
+        <div class="service-desc">Diseñamos hubs operativos personalizados en Notion para que tu startup corra sincronizada desde el día uno.</div>
+      </div>
+
+      <!-- Notion Templates — clickable, opens modal -->
+      <div class="service-card clickable reveal reveal-delay-1" onclick="openModal()">
+        <div class="service-icon">📐</div>
+        <div class="service-name">Marketplace de Templates de Notion</div>
+        <div class="service-desc">Plantillas listas para usar: OKRs, dashboards financieros, gestión de contenidos y más.</div>
+        <span class="service-badge">
+          Ver templates
+          <svg viewBox="0 0 10 10" fill="none"><path d="M2 5h6M5 2l3 3-3 3" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+      </div>
+
+      <div class="service-card reveal reveal-delay-2">
+        <div class="service-icon">📣</div>
+        <div class="service-name">Marketing Digital y Estrategia</div>
+        <div class="service-desc">Estrategia de contenidos, posicionamiento y comunicación para hacer crecer tu marca de forma sostenida.</div>
+      </div>
+
+      <div class="service-card reveal reveal-delay-3">
+        <div class="service-icon">🎓</div>
+        <div class="service-name">Cursos y Aprendizaje</div>
+        <div class="service-desc">Formación práctica en Notion, Odoo y n8n para que tú y tu equipo dominen las herramientas que potencian tu negocio.</div>
+      </div>
+
+      <div class="service-card full reveal reveal-delay-2">
+        <div class="service-content">
+          <div class="service-icon">🔄</div>
+          <div class="service-name">Modelos de Innovación Empresarial — Wheel of Innovation</div>
+          <div class="service-desc">Nuestro marco propio de innovación continua para que tu empresa no solo se transforme una vez, sino que se reinvente de manera constante y estructurada.</div>
+        </div>
+        <div style="font-size:3.5rem;opacity:0.12;font-family:var(--font-head);font-weight:700;letter-spacing:-0.05em;align-self:center;">WoI</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ─── CLIENTS ─── -->
+<section id="clients">
+  <div class="clients-inner">
+    <div class="clients-header">
+      <div>
+        <div class="section-tag reveal">Clientes</div>
+        <h2 class="clients-title reveal reveal-delay-1">Empresas que<br />confiaron en KURVA.</h2>
+      </div>
+      <p class="clients-sub reveal reveal-delay-2">Organizaciones que decidieron dar el salto hacia la excelencia.</p>
+    </div>
+
+    <div class="clients-grid">
+      <div class="client-card reveal reveal-delay-1">
+        <img class="client-logo-img" src="Logo_Lásermaq.png" alt="Lásermaq SAS"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+        <div class="client-logo-text" style="display:none">LÁSERMAQ SAS</div>
+        <div class="client-type">Manufactura &amp; Tecnología Láser</div>
+      </div>
+      <div class="client-card reveal reveal-delay-2">
+        <img class="client-logo-img" src="Logo_MxPhone.png" alt="MxPhone"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+        <div class="client-logo-text" style="display:none">MxPhone</div>
+        <div class="client-type">Telecomunicaciones</div>
+      </div>
+      <div class="client-card reveal reveal-delay-3">
+        <img class="client-logo-img" src="Logo_Agencia3.1.png" alt="Tres.Uno Creative Studio"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+        <div class="client-logo-text" style="display:none">Tres.Uno</div>
+        <div class="client-type">Creative Studio</div>
+      </div>
+      <div class="client-card reveal reveal-delay-4">
+        <img class="client-logo-img" src="Logo_Creativ3 Studio.png" alt="Creativ3 Studios"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+        <div class="client-logo-text" style="display:none">CREATIV3</div>
+        <div class="client-type">Producción Digital</div>
+      </div>
+    </div>
+
+    <!-- Testimonial -->
+    <div class="testimonial-wrap reveal">
+      <p class="testimonial-text">
+        "Recientemente trabajamos con Kurva uno a uno para remodelar todas nuestras operaciones, nuestro hub dentro de Notion. El colaborar con el equipo de Kurva ha sido increíble. Estamos todos en el equipo sincronizados, alineados a nivel comunicación, a nivel sistemas, a nivel operaciones. Ha sido un punto estratégico clave porque veníamos operando bien, pero sin tener un sistema centralizado al que pudiéramos acudir y operar todo unido."
+      </p>
+      <div class="testimonial-author">
+        <div class="author-avatar">AL</div>
+        <div class="author-info">
+          <span class="author-name">Alex León</span>
+          <span class="author-role">Co-fundador, Creativ3 Studios</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Marquee -->
+    <div class="marquee-wrap">
+      <div class="marquee-track">
+        <span class="marquee-item">Lásermaq</span>
+        <span class="marquee-item">MxPhone</span>
+        <span class="marquee-item">Tres.Uno Creative Studio</span>
+        <span class="marquee-item">Creativ3 Studios</span>
+        <span class="marquee-item">Transformación Digital</span>
+        <span class="marquee-item">Notion · Odoo · n8n</span>
+        <span class="marquee-item">Wheel of Innovation</span>
+        <span class="marquee-item">Lásermaq</span>
+        <span class="marquee-item">MxPhone</span>
+        <span class="marquee-item">Tres.Uno Creative Studio</span>
+        <span class="marquee-item">Creativ3 Studios</span>
+        <span class="marquee-item">Transformación Digital</span>
+        <span class="marquee-item">Notion · Odoo · n8n</span>
+        <span class="marquee-item">Wheel of Innovation</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── CTA ─── -->
+<section id="cta">
+  <div class="cta-bg-orb"></div>
+  <div class="cta-inner">
+    <div class="cta-left">
       <div class="cta-eyebrow reveal">El siguiente paso</div>
       <h2 class="cta-title reveal reveal-delay-1">
-        ¿Lista tu empresa<br />para <span class="gradient-text">la curva?</span>
+        ¿Lista tu empresa<br />
+        para <span class="gradient-text">la curva?</span>
       </h2>
       <p class="cta-body reveal reveal-delay-2">
-        El momento de transformar es ahora. Conversemos sobre cómo llevar tu organización al siguiente nivel.
+        Cuéntanos sobre tu negocio y te ayudamos a encontrar el camino hacia el siguiente nivel. Sin compromiso, con claridad.
       </p>
-      <div class="cta-actions reveal reveal-delay-3">
-        <a class="cta-btn-main" href="mailto:hola@kurva.co">
-          Habla con nosotros
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-            <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
+      <div class="cta-socials reveal reveal-delay-3">
+        <a class="social-link" href="https://instagram.com/kurva_solutions" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+          @kurva_solutions
         </a>
-        <a class="cta-btn-outline" href="#about">
-          Conocer más
+        <a class="social-link" href="https://linkedin.com/company/kurva" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+          Kurva
         </a>
       </div>
     </div>
-  </section>
 
-  <!-- ─── FOOTER ─── -->
-  <footer>
-    <span class="footer-logo">KURVA</span>
-    <ul class="footer-links">
-      <li><a href="#about">Nosotros</a></li>
-      <li><a href="#clients">Clientes</a></li>
-      <li><a href="#cta">Contacto</a></li>
-    </ul>
+    <div class="reveal reveal-delay-2">
+      <div class="form-container">
+        <div class="form-header">
+          <div class="form-dot"></div>
+          <div class="form-dot"></div>
+          <div class="form-dot"></div>
+          <span class="form-label">Formulario de contacto</span>
+        </div>
+        <iframe
+          class="form-iframe"
+          src="https://equable-echinacea-222.notion.site/294e6d4b3e2f80a99a1ecf4387d3446f?pvs=105"
+          title="Formulario de contacto KURVA"
+          loading="lazy"
+          id="contactIframe">
+        </iframe>
+        <div class="form-fallback" id="formFallback">
+          <p>¿El formulario no carga? Ábrelo directamente.</p>
+          <a href="https://equable-echinacea-222.notion.site/294e6d4b3e2f80a99a1ecf4387d3446f?pvs=105" target="_blank" rel="noopener">
+            Abrir formulario
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FOOTER ─── -->
+<footer>
+  <span class="footer-logo">KURVA</span>
+  <ul class="footer-links">
+    <li><a href="#about">Nosotros</a></li>
+    <li><a href="#services">Servicios</a></li>
+    <li><a href="#clients">Clientes</a></li>
+    <li><a href="#cta">Contacto</a></li>
+  </ul>
+  <div style="display:flex;align-items:center;gap:1.5rem;flex-wrap:wrap;">
+    <button class="privacy-link" onclick="openPrivacy()">Aviso de privacidad</button>
     <span class="footer-copy">&copy; 2026 KURVA. Todos los derechos reservados.</span>
-  </footer>
+  </div>
+</footer>
 
-  <!-- ─── SCRIPTS ─── -->
-  <script>
-    // Nav scroll effect
-    const navbar = document.getElementById('navbar');
-    window.addEventListener('scroll', () => {
-      navbar.classList.toggle('scrolled', window.scrollY > 60);
-    });
+<!-- ─── NOTION TEMPLATES MODAL ─── -->
+<div class="modal-overlay" id="notionModal" onclick="closeModalOutside(event)">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <div style="font-size:0.68rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--indigo);margin-bottom:0.75rem;">Marketplace</div>
+    <h3 class="modal-title">Templates de Notion</h3>
+    <p class="modal-sub">Dashboards y sistemas listos para implementar en tu empresa hoy mismo.</p>
 
-    // Scroll reveal
-    const revealEls = document.querySelectorAll('.reveal');
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    <!--
+      INSTRUCCIÓN: Guarda la imagen del dashboard de Notion como
+      "notion-dashboard.png" dentro de Kurva_Assets/ para que aparezca aquí.
+    -->
+    <img class="modal-img" src="notion-dashboard.png" alt="Notion Dashboards KURVA"
+         onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+    <div class="modal-img-placeholder" style="display:none">
+      📊 &nbsp; Agrega notion-dashboard.png a Kurva_Assets/
+    </div>
 
-    revealEls.forEach(el => observer.observe(el));
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-bottom:1.75rem;">
+      <div style="padding:1rem;background:rgba(85,99,253,0.1);border:1px solid rgba(85,99,253,0.2);border-radius:12px;">
+        <div style="font-size:1.25rem;margin-bottom:0.5rem;">📊</div>
+        <div style="font-size:0.82rem;font-weight:600;margin-bottom:0.25rem;">OKR Dashboard</div>
+        <div style="font-size:0.72rem;color:rgba(246,251,239,0.45);">Objetivos y resultados clave</div>
+      </div>
+      <div style="padding:1rem;background:rgba(38,163,199,0.1);border:1px solid rgba(38,163,199,0.2);border-radius:12px;">
+        <div style="font-size:1.25rem;margin-bottom:0.5rem;">💰</div>
+        <div style="font-size:0.82rem;font-weight:600;margin-bottom:0.25rem;">Financial Hub</div>
+        <div style="font-size:0.72rem;color:rgba(246,251,239,0.45);">Control de ingresos y gastos</div>
+      </div>
+      <div style="padding:1rem;background:rgba(183,25,191,0.1);border:1px solid rgba(183,25,191,0.2);border-radius:12px;">
+        <div style="font-size:1.25rem;margin-bottom:0.5rem;">📱</div>
+        <div style="font-size:0.82rem;font-weight:600;margin-bottom:0.25rem;">Content Engine</div>
+        <div style="font-size:0.72rem;color:rgba(246,251,239,0.45);">Flujo de creación de contenido</div>
+      </div>
+    </div>
 
-    // Stats counter animation
-    function animateCount(el, target, suffix = '', duration = 1800) {
-      const isInfinity = target === '∞';
-      if (isInfinity) return;
-      const isPercent = suffix === '%';
-      let start = 0;
-      const step = (timestamp) => {
-        if (!start) start = timestamp;
-        const progress = Math.min((timestamp - start) / duration, 1);
-        const ease = 1 - Math.pow(1 - progress, 3);
-        const value = Math.floor(ease * parseFloat(target));
-        el.textContent = value + suffix;
-        if (progress < 1) requestAnimationFrame(step);
-        else el.textContent = target + suffix;
-      };
-      requestAnimationFrame(step);
+    <a class="modal-cta" href="https://equable-echinacea-222.notion.site/294e6d4b3e2f80a99a1ecf4387d3446f?pvs=105" target="_blank" rel="noopener">
+      Ver todos los templates
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+  </div>
+</div>
+
+<!-- ─── PRIVACY MODAL ─── -->
+<div class="privacy-overlay" id="privacyModal" onclick="closePrivacyOutside(event)">
+  <div class="privacy-box">
+    <button class="privacy-close" onclick="closePrivacy()">✕</button>
+    <div class="privacy-eyebrow">Legal</div>
+    <h2>Aviso de Privacidad</h2>
+    <p style="font-size:0.8rem;color:rgba(246,251,239,0.38);margin-bottom:1.5rem;">Última actualización: octubre 2025</p>
+
+    <p><strong>KURVA</strong> (a cargo de MARDO CONSULTORÍA), con domicilio en Ciudad de México, es responsable del tratamiento de sus datos personales conforme a la <strong>Ley Federal de Protección de Datos Personales en Posesión de los Particulares (LFPDPPP)</strong>.</p>
+
+    <h3>1. Datos que recabamos</h3>
+    <ul>
+      <li><strong>Identificación:</strong> nombre, empresa, puesto.</li>
+      <li><strong>Contacto:</strong> correo electrónico, teléfono.</li>
+      <li><strong>Transaccionales:</strong> exclusivamente durante procesos de contratación.</li>
+    </ul>
+
+    <h3>2. Finalidades</h3>
+    <p><strong>Primarias (necesarias):</strong> contacto comercial, seguimiento de solicitudes, prestación de servicios y cumplimiento de obligaciones legales.</p>
+    <p><strong>Secundarias (opcionales):</strong> envío de newsletters y comunicaciones de marketing. Puede manifestar su negativa escribiendo a hola@kurva.co.</p>
+
+    <h3>3. Derechos ARCO</h3>
+    <p>Puede Acceder, Rectificar, Cancelar u Oponerse al tratamiento de sus datos escribiendo a <strong>hola@kurva.co</strong>. Responderemos en un plazo de hasta 20 días hábiles.</p>
+
+    <h3>4. Transferencias</h3>
+    <p>Podemos transferir datos a proveedores tecnológicos (Notion, Google, entre otros) bajo medidas de seguridad y únicamente para cumplir con las finalidades informadas.</p>
+
+    <h3>5. Conservación</h3>
+    <p>Conservamos sus datos hasta por 10 años desde la última interacción relevante, aplicando medidas de seguridad técnicas y administrativas.</p>
+
+    <div style="margin-top:2rem;padding:1rem;background:rgba(183,25,191,0.06);border:1px solid rgba(183,25,191,0.2);border-radius:10px;">
+      <p style="font-size:0.8rem;color:rgba(246,251,239,0.55);margin:0;">Al enviar el formulario de contacto, usted declara haber leído este Aviso de Privacidad y otorga su consentimiento para las finalidades descritas.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ─── SCRIPTS ─── -->
+<script>
+  // ── NAV SCROLL ──
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 60);
+  });
+
+  // ── WAVE CANVAS ANIMATION ──
+  const canvas = document.getElementById('waveCanvas');
+  const ctx = canvas.getContext('2d');
+  let t = 0;
+
+  function resizeCanvas() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+  }
+  resizeCanvas();
+  window.addEventListener('resize', resizeCanvas);
+
+  const waves = [
+    { color: 'rgba(183,25,191,0.18)',  amp: 90,  freq: 2.5, speed: 0.004, offset: 0,   yBase: 0.75 },
+    { color: 'rgba(85,99,253,0.14)',   amp: 70,  freq: 3.2, speed: 0.005, offset: 2.1, yBase: 0.65 },
+    { color: 'rgba(38,163,199,0.12)',  amp: 110, freq: 1.8, speed: 0.003, offset: 4.5, yBase: 0.80 },
+    { color: 'rgba(85,163,249,0.10)',  amp: 60,  freq: 4.0, speed: 0.006, offset: 1.3, yBase: 0.55 },
+  ];
+
+  function drawWave(w) {
+    const { color, amp, freq, offset, yBase } = w;
+    const h = canvas.height;
+    const width = canvas.width;
+    ctx.beginPath();
+    ctx.moveTo(0, h);
+    for (let x = 0; x <= width; x += 3) {
+      const progress = x / width;
+      const y = h * yBase
+        + Math.sin(progress * freq * Math.PI * 2 + t + offset) * amp
+        + Math.sin(progress * freq * 1.6 * Math.PI * 2 + t * 0.8 + offset) * amp * 0.4;
+      if (x === 0) ctx.moveTo(x, y);
+      else ctx.lineTo(x, y);
     }
+    ctx.lineTo(width, h);
+    ctx.lineTo(0, h);
+    ctx.closePath();
+    ctx.fillStyle = color;
+    ctx.fill();
+  }
 
-    const statsObs = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const el = entry.target.querySelector('.stat-number');
-          const text = el.textContent;
-          if (text.includes('+')) animateCount(el, text.replace('+',''), '+');
-          else if (text.includes('%')) animateCount(el, text.replace('%',''), '%');
-          statsObs.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.5 });
+  function animateWaves() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    waves.forEach((w, i) => {
+      t += w.speed * 0.25;
+      drawWave(w);
+    });
+    t += 0.003;
+    requestAnimationFrame(animateWaves);
+  }
+  animateWaves();
 
-    document.querySelectorAll('.stat-item').forEach(el => statsObs.observe(el));
-  </script>
+  // ── SCROLL REVEAL ──
+  const revealEls = document.querySelectorAll('.reveal');
+  const revealObs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); revealObs.unobserve(e.target); }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+  revealEls.forEach(el => revealObs.observe(el));
+
+  // ── NOTION MODAL ──
+  function openModal() {
+    document.getElementById('notionModal').classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeModal() {
+    document.getElementById('notionModal').classList.remove('active');
+    document.body.style.overflow = '';
+  }
+  function closeModalOutside(e) {
+    if (e.target === document.getElementById('notionModal')) closeModal();
+  }
+
+  // ── PRIVACY MODAL ──
+  function openPrivacy() {
+    document.getElementById('privacyModal').classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+  function closePrivacy() {
+    document.getElementById('privacyModal').classList.remove('active');
+    document.body.style.overflow = '';
+  }
+  function closePrivacyOutside(e) {
+    if (e.target === document.getElementById('privacyModal')) closePrivacy();
+  }
+
+  // ESC key closes any modal
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') { closeModal(); closePrivacy(); }
+  });
+
+  // ── IFRAME FALLBACK ──
+  // Show fallback button if iframe fails to load after 6s
+  const iframe = document.getElementById('contactIframe');
+  const fallback = document.getElementById('formFallback');
+  const timer = setTimeout(() => {
+    try {
+      // If iframe loaded but was blocked, height might be 0
+      if (!iframe.contentDocument) {
+        fallback.style.display = 'block';
+        iframe.style.display = 'none';
+      }
+    } catch(e) {
+      fallback.style.display = 'block';
+      iframe.style.display = 'none';
+    }
+  }, 6000);
+  iframe.addEventListener('load', () => clearTimeout(timer));
+</script>
+
 </body>
 </html>
